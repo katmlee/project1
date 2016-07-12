@@ -1,0 +1,20 @@
+<h1><%= @destination.city %></h1>
+
+<!-- //Images in scrolling layout
+
+//two side-by-side divs with -->
+<div class="center_row">
+  <ul>
+    <li><%= @destination.start_date %></li>
+    <!-- //use shortcut to display as month// -->
+    <li><%= @destination.who %></li>
+    <li><%= @destination.purpose %></li>
+    <li><%= @destination.favorite_part %></li>
+    <!-- <li><%#= @destination. %></li> need to add tips-->
+  </ul>
+</div>
+<div class="center_row">
+<!-- add blurb  -->
+</div>
+
+<%= link_to "Edit Destination", edit_user_destination_path(@current_user, @destination) %>

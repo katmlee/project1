@@ -1,0 +1,6 @@
+<h1>Edit Destination</h1>
+<%= render :partial => 'form' %>
+<div class="controls">
+  <!-- This is morally wrong -->
+  <%= button_to 'Delete', user_destination_path, :method => :delete, :data => { :confirm => "Are you sure?" } %>
+</div>

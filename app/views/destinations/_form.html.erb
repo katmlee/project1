@@ -1,0 +1,49 @@
+<%= form_for([@current_user, @destination]) do |f| %>
+  <fieldset>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :country %>
+    <%= f.text_field :country %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :start_date, 'Start date of trip' %>
+    <%= f.date_field :start_date %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :end_date, 'End date of trip'%>
+    <%= f.date_field :end_date %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :who, 'Who did you go with?' %>
+    <%= f.text_field :who %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :purpose, 'Why did you go?' %>
+    <%= f.text_field :purpose %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :favorite_part, 'What was your favorite part?' %>
+    <%= f.text_field :favorite_part %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :photos %>
+    <%= f.url_field :photos %>
+  </fieldset>
+
+  <fieldset>
+    <%= f.label :map_link, 'Place an embedded link for Tripcipe, Google MyMaps or Four Square' %>
+    <%= f.url_field :map_link %>
+  </fieldset>
+
+  <%= f.submit %>
+
+<% end %>

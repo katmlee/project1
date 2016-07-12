@@ -1,0 +1,9 @@
+<h1>Welcome <%= @user.first_name %>!</h1>
+
+<h3>All Destinations</h3>
+<div style='width: 800px;'>
+  <div id="multi_markers" style='width: 800px; height: 400px;'></div>
+</div>
+<% @destinations.each do |destination| %>
+<h4><%= link_to destination.city, user_destination_path(@user, destination)%> <%= destination.country %>
+<%end %>
