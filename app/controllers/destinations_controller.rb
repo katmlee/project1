@@ -13,6 +13,7 @@ class DestinationsController < ApplicationController
 
   def create
     destination = @current_user.destinations.create destination_params
+    # Process photos here if any
     redirect_to user_destination_path(@current_user, destination)
   end
 
@@ -38,6 +39,6 @@ class DestinationsController < ApplicationController
 
   private
   def destination_params
-    params.require(:destination).permit(:city, :country, :start_date, :end_date, :who, :purpose, :favorite_part, :photos, :map_link)
+    params.require(:destination).permit(:city, :country, :start_date, :trip_synopsis, :must_do, :must_see, :must_eat, :end_date, :who, :purpose, :favorite_part, :map_link)
   end
 end

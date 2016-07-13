@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create user_params
     if @user.save
-      session[:id] = @user.id
+      session[:user_id] = @user.id
       redirect_to user_destinations_path(@user)
     else
       render :new

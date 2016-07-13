@@ -21,7 +21,7 @@
   <div class="col-md-6 destination_row">
   <h3> Trip Details</h3>
     <ul>
-      <li><%= @destination.start_date.strftime("Month Traveled: %B") %></li>
+      <li><%= @destination.start_date.strftime "Month Traveled: %B" if @destination.start_date%></li>
       <!-- //use shortcut to display as month// -->
       <li>Traveled with: <%= @destination.who %></li>
       <li>Traveled for: <%= @destination.purpose %></li>
