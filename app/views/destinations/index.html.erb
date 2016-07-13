@@ -1,9 +1,27 @@
-<h1>Welcome <%= @user.first_name %>!</h1>
+<script>
+  var destinationCoordinates = <%== @user.destination_coordinates.to_json %>;
+</script>
 
-<h3>All Destinations</h3>
-<div style='width: 800px;'>
-  <div id="multi_markers" style='width: 800px; height: 400px;'></div>
+<div class = 'row profile_heading'>
+  <div class="col-md-4 destination_row profile_pic">
+    <%= image_tag @user.image, :class => 'thumb' %>
+  </div>
+  <div class="col-md-8 destination_row">
+    <h1 class="welcome_message"><%= @user.first_name %>'s Travels!</h1>
+    <p id="aboutme"><%= @user.about_me %></p>
+  </div>
+
 </div>
+<div style='width: 100%;'>
+  <div id="multi_markers" style='width:100%; height: 400px;'>
+  </div>
+</div>
+<div class = 'row'>
 <% @destinations.each do |destination| %>
-<h4><%= link_to destination.city, user_destination_path(@user, destination)%> <%= destination.country %>
+  <div class="col-md-3 destination_row">
+    <div class="destination_thumb">
+      <%= link_to destination.city, user_destination_path(@user, destination)%> <%= destination.country %>
+    </div>
+  </div>
 <%end %>
+</div>

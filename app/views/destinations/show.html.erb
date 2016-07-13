@@ -3,18 +3,45 @@
 <!-- //Images in scrolling layout
 
 //two side-by-side divs with -->
-<div class="center_row">
-  <ul>
-    <li><%= @destination.start_date %></li>
-    <!-- //use shortcut to display as month// -->
-    <li><%= @destination.who %></li>
-    <li><%= @destination.purpose %></li>
-    <li><%= @destination.favorite_part %></li>
-    <!-- <li><%#= @destination. %></li> need to add tips-->
-  </ul>
+<!-- <h1>Listing photos</h1>
+<div class="col-md-12 destination_row">
+  <%# @photos.in_groups_of(3) do |group| %>
+    <div class="row">
+      <%# group.compact.each do |photo| %>
+        <div class="col-xs-4">
+          <%#= image_tag photo.file_url, :width => '100%' if photo.file.present?%>
+          <h4><%#= link_to photo.title, photo %></h4>
+          <%#= photo.description %>
+        </div>
+      <%# end %>
+    </div>
+  <%# end %>
+</div> -->
+<div class= 'row destination_info'>
+  <div class="col-md-6 destination_row">
+  <h3> Trip Details</h3>
+    <ul>
+      <li><%= @destination.start_date.strftime("Month Traveled: %B") %></li>
+      <!-- //use shortcut to display as month// -->
+      <li>Traveled with: <%= @destination.who %></li>
+      <li>Traveled for: <%= @destination.purpose %></li>
+      <li>Best Part: <%= @destination.favorite_part %></li>
+      <li>Must Eat: <%= @destination.must_eat %></li>
+      <li>Must See: <%= @destination.must_see %></li>
+      <li>Must Do: <%= @destination.must_do %></li>
+
+
+      <!-- <li><%#= @destination. %></li> need to add tips-->
+    </ul>
+  </div>
+  <div class="col-md-6 destination_row">
+  <!-- add blurb  -->
+  <h3> My trip...</h3>
+  <p id="synopsis"><%= @destination.trip_synopsis %></p>
+  </div>
 </div>
-<div class="center_row">
-<!-- add blurb  -->
+<div class='city_map'>
+  <iframe src='https://www.tripcipe.com/embed/SBQoqVti99Ac' style='width:100%; height:400px'></iframe>
 </div>
 
 <%= link_to "Edit Destination", edit_user_destination_path(@current_user, @destination) %>

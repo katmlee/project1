@@ -22,7 +22,7 @@ class DestinationsController < ApplicationController
 
   def update
     destination = Destination.find params[:id]
-    destination.update destiantion_params
+    destination.update destination_params
     redirect_to user_destination_path(@current_user, destination)
   end
 
@@ -35,12 +35,6 @@ class DestinationsController < ApplicationController
     destination.destroy
     redirect_to user_destinations_path(@current_user)
   end
-
-  # have_been = []
-  # def destination_coordinates
-  #   @destinations.each do |destination|
-  #     have_been.push("{ lat: #{destination.latitude }, lng: #{destination.longitude}}")
-  #   end
 
   private
   def destination_params

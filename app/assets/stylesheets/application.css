@@ -1,7 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Oxygen:400,300,700);
-body{
-  font-family: 'Oxygen', sans-serif;
-}
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -17,3 +15,31 @@ body{
  *= require_tree .
  *= require_self
  */
+
+ @import url(https://fonts.googleapis.com/css?family=Oxygen:400,300,700);
+ body{
+   font-family: 'Oxygen', sans-serif;
+ }
+ .destination_row{
+   margin-top: 10px;
+   margin-bottom: 10px;
+ }
+ .destination_thumb{
+   margin: 0 auto;
+   width: 50%;
+   height: 200px;
+   box-sizing:border-box;
+   border: 1px solid black;
+   padding: 10px;
+ }
+ .thumb{
+   border-radius: 50%;
+  box-sizing:border-box;
+}
+.profile_heading{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.profile_pic{
+  text-align: center;
+}
