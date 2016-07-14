@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.create user_params
+    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       redirect_to user_destinations_path(@user)
@@ -25,9 +25,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    req = Cloudinary::Uploader.upload(params[:file])
     @user = @current_user
-    if @user.update user_params
-    redirect_to user_destinations_path(@user)
+    @user.image = req["url"]
+    if @user.update(user_params)
+      redirect_to user_destinations_path(@user)
     else
       render :edit
     end

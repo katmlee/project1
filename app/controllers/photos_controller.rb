@@ -7,10 +7,12 @@ class PhotosController < ApplicationController
   end
 
   def create
-    req = Cloudinary::Uploader.upload( params[:file])
-    @photo = Photo.create( name: params[:name], avatar: req["url"])
+
   end
 
   def show
+    # @destination = params[:photo_id]
+    # @photos = @destination.photos
+
   end
 end

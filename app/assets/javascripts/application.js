@@ -14,4 +14,11 @@
 //= require jquery_ujs
 //= require underscore
 //= require gmaps/google
+//= require bootstrap-sprockets
 //= require_tree .
+$(document).ready(function() {
+    $(".dropdown-toggle").dropdown();
+});
+// $('.carousel').carousel({
+//   interval: 100
+// });

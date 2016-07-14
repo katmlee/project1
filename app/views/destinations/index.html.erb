@@ -4,7 +4,7 @@
 
 <div class = 'row profile_heading'>
   <div class="col-md-4 destination_row profile_pic">
-    <%= image_tag @user.image, :class => 'thumb' %>
+    <%= cl_image_tag @user.image, :width=>200, :height=>200, :gravity=>"auto", :class => 'thumb' %>
   </div>
   <div class="col-md-8 destination_row">
     <h1 class="welcome_message"><%= @user.first_name %>'s Travels!</h1>
@@ -19,9 +19,12 @@
 <div class = 'row'>
 <% @destinations.each do |destination| %>
   <div class="col-md-3 destination_row">
-    <div class="destination_thumb">
-      <%= link_to destination.city, user_destination_path(@user, destination)%> <%= destination.country %>
+    <a href="<%=user_destination_path(@user, destination)%>">
+    <div class="destination_thumb" style="background-image: url(<%= destination.photos.first.image if destination.photos.any? %>); background-color: rgba(148, 197, 204, 0.5); ">
+      <%= link_to destination.city, user_destination_path(@user, destination)%> <%= destination.country%>
     </div>
+  </a>
   </div>
 <%end %>
 </div>
+<div>

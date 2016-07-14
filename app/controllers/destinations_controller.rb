@@ -13,7 +13,10 @@ class DestinationsController < ApplicationController
 
   def create
     destination = @current_user.destinations.create destination_params
-    # Process photos here if any
+    # @destination = @current_user.destinations.create destination_params
+    # req = Cloudinary::Uploader.upload(params[:file])
+    # @user = @current_user
+    # @desination.image = req["url"]
     redirect_to user_destination_path(@current_user, destination)
   end
 
@@ -22,9 +25,17 @@ class DestinationsController < ApplicationController
   end
 
   def update
-    destination = Destination.find params[:id]
-    destination.update destination_params
-    redirect_to user_destination_path(@current_user, destination)
+    @destination = Destination.find params[:id]
+    @destination.photos.destroy_all unless params[:destination_photos].empty?
+    params[:destination_photos].each do |photo|
+      req = Cloudinary::Uploader.upload(photo)
+      p = Photo.create(:image => req["url"])
+      @destination.photos << p
+      # Or maybe @destination.photos.create(:image => req["url"])
+    end
+    @destination.update destination_params
+    @user = @current_user
+    redirect_to user_destination_path(@current_user, @destination)
   end
 
   def show
@@ -39,6 +50,6 @@ class DestinationsController < ApplicationController
 
   private
   def destination_params
-    params.require(:destination).permit(:city, :country, :start_date, :trip_synopsis, :must_do, :must_see, :must_eat, :end_date, :who, :purpose, :favorite_part, :map_link)
+    params.require(:destination).permit(:city, :country, :start_date, :trip_synopsis, :must_do, :must_see, :must_eat, :end_date, :who, :purpose, :favorite_part, :map_link, :destination_photos)
   end
 end
