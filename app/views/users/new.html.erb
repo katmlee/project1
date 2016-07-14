@@ -1,5 +1,5 @@
 <h1>Sign Up</h1>
-
+<div class="col-md-6 fbarea">
 <% if @user.errors.any? %>
   <ol>
     <% @user.errors.full_messages.each do |message| %>
@@ -27,3 +27,10 @@
 </div>
   <%= f.submit "Sign up" %>
 <% end %>
+</div>
+
+<div class="col-md-6 fbarea">
+    <div class="facebook_div">
+        <div><%=link_to image_tag('fb.jpg'), '/auth/facebook', :class => 'fb_button' %></div>
+    </div>
+</div>
