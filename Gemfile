@@ -8,6 +8,10 @@ gem 'underscore-rails'
 
 gem 'cloudinary'
 
+gem 'omniauth-facebook'
+
+gem "koala", "~> 1.10.0rc"
+
 gem 'rails_12factor'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

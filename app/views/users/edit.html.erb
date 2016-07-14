@@ -43,7 +43,7 @@
   <%= f.label :about_me %>
   <%= f.text_area :about_me, :class => 'form-control' %>
   </div>
-
+<% if @current_user.facebook_id.nil? %>
   <div class="form-group">
     <%= f.label :email %>
     <%= f.text_field :email, :autofocus => true, :required => true, :class => 'form-control' %>
@@ -52,6 +52,7 @@
     <%= f.label :password %>
     <%= f.password_field :password, :class => 'form-control' %>
   </div>
+<% end %>  
   <!-- <div class="form-group">
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, :class => 'form-control' %>

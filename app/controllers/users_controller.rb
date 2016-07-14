@@ -6,6 +6,20 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def login
+   @user = User.koala(request.env['omniauth.auth']['credentials'])
+   facebook_id = @user["id"]
+   @current_user = User.find_or_create_by(:facebook_id => facebook_id)
+   @current_user.first_name = @user["first_name"]
+   @current_user.last_name = @user["last_name"]
+   @current_user.email = @user["email"]
+   @current_user.password_digest = "efielkwj"
+   @current_user.save
+   session[:user_id] = @current_user.id
+   redirect_to user_destinations_path(@current_user)
+
+  end
+
   def new
     @user = User.new
   end

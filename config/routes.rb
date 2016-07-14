@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :destinations
       resources :photos
   end
+  get 'auth/facebook', as: "auth_provider"
+  get 'auth/facebook/callback', to: 'users#login'
 
   get '/login' => 'session#new'
   post '/login' => 'session#create'

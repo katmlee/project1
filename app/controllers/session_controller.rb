@@ -1,7 +1,9 @@
 class SessionController < ApplicationController
   def new
   end
-
+  def login
+   @user = User.koala(request.env['omniauth.auth']['credentials'])
+  end
   def create
     user = User.find_by :email => params[:email]
     if user.present? && user.authenticate(params[:password])
