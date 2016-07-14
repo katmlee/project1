@@ -144,13 +144,13 @@ section.module.parallax h1 {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 section.module.parallax-1 {
-  background-image: url("balloon.jpg");
+  background-image: image-url("balloon.jpg");
 }
 section.module.parallax-2 {
-  background-image: url("lion.jpg");
+  background-image: image-url("lion.jpg");
 }
 section.module.parallax-3 {
-  background-image: url("ocean.jpg");
+  background-image: image-url("ocean.jpg");
 }
 
 @media all and (min-width: 600px) {
