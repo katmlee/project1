@@ -14,11 +14,11 @@
         <%= submit_tag 'Login' %>
         <% end %>
     </div>
-    <!-- <div class="col-md-6 fbarea">
+    <div class="col-md-6 fbarea">
         <div class="facebook_div">
-            <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
+            <div><%=link_to image_tag('fb.jpg'), '/auth/facebook', :class => 'fb_button' %></div>
         </div>
-    </div> -->
-    <%= link_to "Facebook Login", '/auth/facebook' %>
+    </div>
+
 
 </div>
