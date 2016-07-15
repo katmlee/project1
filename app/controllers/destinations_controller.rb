@@ -1,4 +1,5 @@
 class DestinationsController < ApplicationController
+  before_action :authorize_user, :except => [:index, :show]
 
   def index
     #how do we write all destinations for user id. Can an instance variable in a different contoller be called?

@@ -58,16 +58,12 @@ class UsersController < ApplicationController
     user.destroy
     redirect_to user_destinations_path(user)
   end
-private
-def user_params
-  params.require(:user).permit(:first_name, :last_name, :password, :email, :birthdate, :current_city, :current_city, :fav_destination, :about_me, :password_confirmation, :image)
-end
-
-def authorise_user
-  redirect_to root_path if @current_user.present? && @current_user.admin?
-end
-
-def check_for_user
-  redirect_to new_user_path unless @current_user.present?
-end
+  private
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :password, :email, :birthdate, :current_city, :current_city, :fav_destination, :about_me, :password_confirmation, :image)
+  end
+  
+  def check_for_user
+    redirect_to new_user_path unless @current_user.present?
+  end
 end
