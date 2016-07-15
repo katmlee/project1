@@ -20,7 +20,7 @@
 <% @destinations.each do |destination| %>
   <div class="col-md-3 destination_row">
     <a href="<%=user_destination_path(@user, destination)%>">
-    <div class="destination_thumb" style="background-image: url(<%= destination.photos.first.image if destination.photos.any? %>); background-color: rgba(148, 197, 204, 0.5); ">
+    <div class="destination_thumb" style="background-image: url(<%= destination.photos.first.image if destination.photos.any? %>); background-color: rgba(148, 197, 204, 0.5); background-size: cover; ">
       <%= link_to destination.city, user_destination_path(@user, destination)%> <%= destination.country%>
     </div>
   </a>
