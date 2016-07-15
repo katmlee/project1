@@ -4,7 +4,9 @@
 
 <div class = 'row profile_heading'>
   <div class="col-md-4 destination_row profile_pic">
-    <%= cl_image_tag @user.image, :width=>200, :height=>200, :gravity=>"auto", :class => 'thumb' %>
+    <div class="thumb" style="background-image: url(<%= @user.image %>); background-size: cover; ">
+      <%#= cl_image_tag @user.image, :width=>200, :height=>200, :gravity=>"auto", :class => 'thumb' %>
+    </div>
   </div>
   <div class="col-md-8 destination_row">
     <h1 class="welcome_message"><%= @user.first_name %>'s Travels!</h1>
