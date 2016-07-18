@@ -28,7 +28,7 @@ class DestinationsController < ApplicationController
   def update
     @destination = Destination.find params[:id]
     # @destination.photos.destroy_all unless params[:destination_photos].empty?
-    params[:destination_photos].any? && params[:destination_photos].each do |photo|
+    params[:destination_photos].present? && params[:destination_photos].each do |photo|
       req = Cloudinary::Uploader.upload(photo)
       p = Photo.create(:image => req["url"])
       @destination.photos << p
