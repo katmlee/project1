@@ -10,6 +10,11 @@ class PhotosController < ApplicationController
 
   end
 
+  def destroy
+    # /users/:id/destination/:id/photos
+    # Delete request
+  end
+
   def show
     # @destination = params[:photo_id]
     # @photos = @destination.photos
