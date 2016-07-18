@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authorise_user, :only => [:index]
+  before_action :authorise_user, :only => [:index, :show]
   before_action :check_for_user, :only => [:edit, :update]
 
   def index
@@ -62,7 +62,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :password, :email, :birthdate, :current_city, :current_city, :fav_destination, :about_me, :password_confirmation, :image)
   end
-  
+
   def check_for_user
     redirect_to new_user_path unless @current_user.present?
   end
